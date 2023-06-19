@@ -1,0 +1,234 @@
+div
+{
+    font-weight: bold;
+    margin-top: 2px;
+    margin-left: 2px;
+}
+.cal
+{
+    width: 880px;
+    height: 400px;
+    
+    margin: auto;
+    
+    font-family: Arial, Helvetica, sans-serif;
+    
+    .m
+    {
+        position: relative;
+        
+        width: 100%;
+        height: 55px;
+    
+        color: rgb(102, 102, 102);
+
+        border-width: 1px;
+        
+        
+        font-size: 40px;
+        text-align: auto;
+        margin-bottom: 10px;
+    }
+    .c1
+    {
+        position: relative;
+        display: inline-block;
+        
+        width: 115px;
+        height: 275px;
+        
+        border-width: 1px; 
+        
+    }
+    
+    .c2
+    {
+        position: relative;
+        display: inline-block;
+
+        width: 115px;
+        height: 275px;
+        
+        border-width: 1px;
+    }
+
+    .c3
+    {
+        position: relative;
+        display: inline-block;
+
+        width: 115px;
+        height: 275px;
+        
+        border-width: 1px;
+    }
+    .c4
+    {
+        position: relative;
+        display: inline-block;
+
+        width: 115px;
+        height: 275px;
+        
+        border-width: 1px;
+    }
+    .c5
+    {
+        position: relative;
+        display: inline-block;
+
+        width: 115px;
+        height: 275px;
+        
+        border-width: 1px;
+    }
+    .c6
+    {
+        position: relative;
+        display: inline-block;
+
+        width: 115px;
+        height: 275px;
+        
+        border-width: 1px;
+    }
+    .c7
+    {
+        position: relative;
+        display: inline-block;
+
+        width: 115px;
+        height: 275px;
+        
+        border-width: 1px;
+    }
+
+    #d
+    {
+        position: relative;
+
+        height: 30px;
+        width: 115px;
+        
+        color: black;
+        background-color: rgb(238, 238, 238);
+        
+        border-radius: 7%;
+        box-shadow: 0.5px 0.5px 0.5px 0.5px rgb(204,204,204);
+
+        font-size: 18px;
+    }
+    .sabado
+    {
+
+        position: relative;
+        top: -47px;
+        left: 1px;
+        padding: auto;
+        
+        width: 115px;
+        height: 45px;
+        
+        color: rgb(1, 1, 154);
+        background-color: rgb(204, 204, 255);
+        
+        border-radius: 7%;
+        box-shadow: 0.5px 0.5px 0.5px 0.5px rgb(204,204,204);
+        
+        font-size: 35px;
+        text-align: center;
+    }
+    .domingo
+    {
+        position: relative;
+
+        width: 115px;
+        height: 45px;
+        
+        color: rgb(205, 6, 2);
+        background-color: rgb(255, 255, 102);
+        
+        border-radius: 7%;
+        box-shadow: 0.5px 0.5px 0.5px 0.5px rgb(204,204,204);
+       
+        font-size: 35px;
+    }
+    .dias
+    {
+        position: relative;
+        top: 1px;
+        left: 1px;
+
+        width: 115px;
+        height: 45px;
+        
+        color: black;
+        background-color: rgb(255, 255, 255);
+
+        border-radius: 7%;
+        box-shadow: 0.5px 0.5px 0.5px 0.5px rgb(204,204,204);
+
+        font-size: 35px;
+    }
+    .feriado
+    {
+        position: relative;
+        top: 1px;
+        left: 1px;
+       
+        width: 115px;
+        height: 45px;
+       
+        color: rgb(0, 130, 0);
+        background-color: white;
+        
+        border-radius: 7%;
+        box-shadow: 0.5px 0.5px 0.5px 0.5px rgb(204,204,204);
+       
+        font-size: 35px;
+    }
+    #dom
+    {
+        position: relative;
+
+        width: 115px;
+        height: 30px;
+        
+        color: rgb(205, 6, 2);
+        background-color: rgb(255, 255, 102);
+        
+        border-radius: 7%;
+        box-shadow: 0.5px 0.5px 0.5px 0.5px rgb(204,204,204);
+       
+        font-size: 18px;
+    }   
+    #sab
+    {
+        position: relative;
+        top: -47px;
+        left: 1px;
+        
+        
+        width: 115px;
+        height: 30px;
+        
+        color: rgb(1, 1, 154);
+        background-color: rgb(204, 204, 255);
+        
+        border-radius: 7%;
+        box-shadow: 0.5px 0.5px 0.5px 0.5px rgb(204,204,204);
+        
+        font-size: 18px;
+    } 
+    .fe
+    {
+        position: relative;
+        top: -50px;
+
+        width: 100%;
+
+        text-align: center;
+        font-size: 10px;
+        
+    }
+}
