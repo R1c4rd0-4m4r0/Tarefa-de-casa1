@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> Jogo: acertou, perdeu! </title>
+    </head>
+    <body>
+        <script lang="JavaScript">
+            var jogadores, num, palpite, min, max, c; 
+
+                min = 1; 
+                max = 100;
+                c = 0;
+            
+                do
+                {
+                    jogadores = parseFloat(window.prompt("Informe quantos jogadores vão jogar(Min.2, Max.5): "));
+                }while(jogadores < 2 || jogadores > 5);
+
+               num = Math.floor(Math.random() * 100 + 1);
+               
+               do
+               {
+                    do
+                    {
+                        c++;
+                        do
+                        {
+                            palpite = parseFloat(window.prompt("Jogador "+ c + ", informe um nº entre "+ min + " e " + max + ": "));
+                        }while(palpite <= min || palpite >= max);
+
+                        if(palpite < num && palpite != num)
+                        {
+                            min = palpite;
+                            
+                        }
+
+                        if(palpite > num && palpite != num)
+                        {
+                            max = palpite;
+                            
+                        }
+
+                        if(palpite == num)
+                        {
+                            document.write("Parabéns Jogador "+ c + ", você perdeu!");
+                            c = jogadores;
+                        }
+
+                        if(c >= jogadores)
+                        {
+                            c = 0;
+                        }
+
+                    }while(c >= jogadores)
+               }while(palpite != num);
+
+        </script>
+    </body>
+</html>
