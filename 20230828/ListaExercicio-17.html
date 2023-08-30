@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> Tabuada de um número </title>
+        <script lang="JavaScript">
+            function tabuada()
+            {
+                var valor, resultado, i, tabuada = "";
+    
+                valor = parseInt(document.Tauba.valor.value);
+
+                if (valor>0)
+                {
+                    for(i=1; i<=10; i++)
+                    {
+                        resultado = valor * i;
+                        
+                        tabuada += "<b>" + valor + " *  " + i + " = " + resultado + "</b><br>";
+
+                        //document.getElementById("cepo").innerHTML = "<b>" + valor + " *  " + i + " = " + resultado + "</b><br>"; -> deu errado
+                    }
+                    
+                    document.getElementById("cepo").innerHTML = tabuada;
+                    
+                }
+                else
+                {
+                    document.getElementById("cepo").innerHTML = "Valor negativo ou igual a 0.";
+                }
+                
+            }   
+            </script>
+    </head>
+    <body>
+        <form name="Tauba">
+            Informe um valor positivo: <input type="text" name="valor" value="0" size="5">
+            <input type="button" name="madeira" value="Calcular" onclick="tabuada();">
+        </form>
+
+        <p id="cepo">  </p>
+    </body>
+</html>
