@@ -1,0 +1,265 @@
+<head>
+    <meta charset='utf-8'>
+    <title>Calendario</title>
+    <style>
+
+        table
+        {   
+            border-radius: 15%;
+            border-width: thick;
+            box-shadow: 5px;
+            text-shadow: 2px;
+            margin-right: auto;
+            margin-left: auto;
+            text-align: center;
+            width: 700;
+            height: 300;
+        }
+        #nome
+        {
+            background-color: black;
+            height: 50px;
+            font-size: 50px;
+            color: white;
+        }
+        td.dom
+        {
+            background-color: #66fa7d;
+            background-size: cover;
+            font-family: Arial;
+            color: #070ff7;
+        }
+        td.sab
+        {
+            background-color: #CCCCFF;
+            font-family: Arial;
+            color: #000099; 
+        }
+        td.t
+        {
+            background-color : #9999ad;
+        
+        }
+        tr.di
+        {
+            font-size:18px;
+        }
+        tr.d
+        {   
+            font-size:20px;
+            background-color: #f7f2f2;
+        }
+        
+        </style>
+</head>
+<body>
+    <script lang="Javascript">
+        var me, an, diadasemana, dia = 0;
+
+        meses = new Array(12);
+
+        meses[0] = "Janeiro";
+        meses[1] = "Fevereiro";
+        meses[2] = "Março";
+        meses[3] = "Abril";
+        meses[4] = "Maio";
+        meses[5] = "Junho";
+        meses[6] = "Julho";
+        meses[7] = "Agosto";
+        meses[8] = "Setembro";
+        meses[9] = "Outubro";
+        meses[10] = "Novembro";
+        meses[11] = "Dezembro";
+
+        me = parseInt(window.prompt("Informe o mês em númeos (1-12): "));
+        an = parseInt(window.prompt("Informe o ano em números: "));
+
+        start = new Date(an, me - 1, 1);
+        last = new Date(an, me, 1 - 1);
+        last = last.getDate();
+        diadasemana = start.getDay();
+
+        document.write("<table>");
+            document.write("<tr>")
+                document.write("<td id='nome' colspan='7'> <b> " + meses[me - 1] + "  " + an +" </b> </td>");
+            document.write("<tr>")
+
+            document.write("<tr class='di'>");
+                document.write("<td class= 'dom'> Dom </td>");
+                document.write("<td class='t'>Seg</td>");
+                document.write("<td class='t'>Ter</td>");
+                document.write("<Td class='t'>Qua</Td>");
+                document.write("<td class='t'>Qui</td>");
+                document.write("<td class='t'>Sex</td>");
+                document.write("<td class='sab'>Sáb</td>");
+            document.write("</tr>");
+
+            document.write("<tr tr class ='d'>"); //1
+                document.write("<td class='dom'>");
+                    document.write(diadasemana === 0 ? ++dia : "");
+                document.write("</td>");
+
+                    document.write("<td>");
+                            if(dia == 0)
+                            {
+                                document.write(diadasemana === 1 ? ++dia : "");
+                            }
+                            else
+                            {
+                                document.write(++dia);
+                            }
+                        document.write("</td>");
+
+                        document.write("<td>");
+                            if(dia == 0)
+                            {
+                                document.write(diadasemana === 2 ? ++dia : "");
+                            }
+                            else
+                            {
+                                document.write(++dia);
+                            }
+                        document.write("</td>");
+
+                        document.write("<td>");
+                            if(dia == 0)
+                            {
+                                document.write(diadasemana === 3 ? ++dia : "");
+                            }
+                            else
+                            {
+                                document.write(++dia);
+                            }
+                        document.write("</td>");
+
+                        document.write("<td>");
+                            if(dia == 0)
+                            {
+                                document.write(diadasemana === 4 ? ++dia : "");
+                            }
+                            else
+                            {
+                                document.write(++dia);
+                            }
+                        document.write("</td>");
+
+                        document.write("<td>");
+                            if(dia == 0)
+                            {
+                                document.write(diadasemana === 5 ? ++dia : "");
+                            }
+                            else
+                            {
+                                document.write(++dia);
+                            }
+                        document.write("</td>");
+
+                        document.write("<td class='sab'>");
+                            if(dia == 0)
+                            {
+                                document.write(diadasemana === 6 ? ++dia : "");
+                            }
+                            else
+                            {
+                                document.write(++dia);
+                            }
+
+        document.write("<tr class= 'd'>"); //2
+            document.write("<td class='dom'>"+ ++dia +"</td>");
+            document.write("<td>"+ ++dia +"</td>");
+            document.write("<td>"+ ++dia +"</td>");
+            document.write("<td>"+ ++dia +"</td>");
+            document.write("<td>"+ ++dia +"</td>");
+            document.write("<td>"+ ++dia +"</td>");
+            document.write("<td class='sab'>"+ ++dia +"</td>");
+        document.write("</tr>"); 
+
+        document.write("<tr class='d'>"); //3
+            document.write("<td class='dom'>"+ ++dia +"</td>");
+            document.write("<td>"+ ++dia +"</td>");
+            document.write("<td>"+ ++dia +"</td>");
+            document.write("<td>"+ ++dia +"</td>");
+            document.write("<td>"+ ++dia +"</td>");
+            document.write("<td>"+ ++dia +"</td>");
+            document.write("<td class='sab'>"+ ++dia +"</td>");
+        document.write("</tr>");
+
+        document.write("<tr class='d'>"); //4
+            document.write("<td class='dom'>"+ ++dia +"</td>");
+            document.write("<td>"+ ++dia +"</td>");
+            document.write("<td>"+ ++dia +"</td>");
+            document.write("<td>"+ ++dia +"</td>");
+            document.write("<td>"+ ++dia +"</td>");
+            document.write("<td>"+ ++dia +"</td>");
+            document.write("<td class='sab'>"+ ++dia +"</td>");
+        document.write("</tr>");
+
+        document.write("<tr tr class ='d'>"); //5
+                        document.write("<td class='dom'>");
+                            document.write(dia < last ? ++dia : "");
+                        document.write("</td>");
+
+                        document.write("<td>");
+                            document.write(dia < last ? ++dia : "");
+                        document.write("</td>");
+
+                        document.write("<td>");
+                            document.write(dia < last ? ++dia : "");
+                        document.write("</td>");
+                        
+                        document.write("<td>");
+                            document.write(dia < last ? ++dia : "");
+                        document.write("</td>");
+                        
+                        document.write("<td>");
+                            document.write(dia < last ? ++dia : "");
+                        document.write("</td>");
+
+                        document.write("<td>");
+                            document.write(dia < last ? ++dia : "");
+                        document.write("</td>");
+
+                        document.write("<td class='sab'>");
+                            document.write(dia < last ? ++dia : ""); 
+                        document.write("</td>");
+                    document.write("</tr>");
+
+                    if(dia < last)
+                    {
+                        document.write("<tr class ='d'>"); //6
+                            document.write("<td class='dom'>");
+                                document.write(dia < last ? ++dia : "");
+                            document.write("</td>");
+
+                            document.write("<td>");
+                                document.write(dia < last ? ++dia : "");
+                            document.write("</td>");
+
+                            document.write("<td>");
+                                document.write(dia < last ? ++dia : "");
+                            document.write("</td>");
+                            
+                            document.write("<td>");
+                                document.write(dia < last ? ++dia : "");
+                            document.write("</td>");
+                            
+                            document.write("<td>");
+                                document.write(dia < last ? ++dia : "");
+                            document.write("</td>");
+
+                            document.write("<td>");
+                                document.write(dia < last ? ++dia : "");
+                            document.write("</td>");
+
+                            document.write("<td class='sab'>");
+                                document.write(dia < last ? ++dia : ""); 
+                            document.write("</td>");
+                        document.write("</tr>");
+                        }
+        document.write("</table>");
+
+
+
+    </script>
+</body>
+</html>
