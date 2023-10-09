@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> Letras em Tabela </title>
+        <script lang="JavaScript">
+            function nome()
+            {
+                var texto, numcaracter, cont;
+                
+                cont = 0;
+                texto = document.Frm.txtTexto.value; 
+                numcaracter = parseInt(texto.length);
+                
+                document.write("<style>");
+                document.write("td {border-style: solid; border-width: 2px; width: 12px; height: 25px}");
+                document.write("</style>");
+
+                document.write("<table>");
+                    document.write("<tr>");
+                        do
+                        {
+                            document.write("<td align='center'>");
+                                document.write(texto.charAt(cont));
+                            document.write("</td>");
+                            cont++;
+                        }while(cont < numcaracter);
+                    document.write("</tr>");
+                    cont = 1;
+                    do
+                    {
+                        document.write("<tr>");
+                            document.write("<td align='center'>");
+                                document.write(texto.charAt(cont));
+                            document.write("</td>");
+                        document.write("</tr>");
+                        cont++;
+                    }while(cont < numcaracter);
+                document.write("</table>");
+
+            }
+
+        </script>
+    </head>
+    <body>
+        <form name="Frm">
+            Escreva algo aqui: <br> 
+            <input type="text" name="txtTexto" value=""><br><br>
+            <input type="button" value="Ok" onclick="nome()">
+        </form>
+    </body>
+</html>

@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> Nome Referência Bibliográfica </title>
+        <script lang="JavaScript">
+            function processo()
+            {
+                var nome, abreviacoes = "", i, ponto = ". ";
+                
+                nome = document.frmString.txtString.value;
+
+                for (i = nome.indexOf(" "); i < nome.lastIndexOf(" "); i++)
+                {
+                    if ((nome.charAt(i) == " ") && (nome.charCodeAt(i + 1) >= 65) && (nome.charCodeAt(i + 1) <= 90))
+                    {
+                        abreviacoes += nome.charAt(i + 1) + ponto;
+                    }
+                }
+
+                document.write("<b> Nome: </b>" + nome + "<br>");
+                document.write("<b> Referência Bibliográfica: </b>" + nome.substring(nome.lastIndexOf(" ") + 1, nome.length).toUpperCase() + ", " + nome.substring(0, nome.indexOf(" ")) + " " + abreviacoes);
+            }
+        </script>
+    </head>
+    <body>
+        <form name="frmString">
+            Informe seu nome completo: <input type="text" name="txtString" value="">
+            <input type="button" value="Ok" onclick="processo()">
+        </form>
+    </body>
+</html>
