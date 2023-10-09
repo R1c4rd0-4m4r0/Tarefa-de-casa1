@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> Contagem de Caracteres </title>
+        <script lang="JavaScript">
+            function processo()
+            {
+                var texto, partes, i, vogais = 0, consoantes = 0, digitos = 0, outros = 0, espacos = 0;
+
+                texto = document.frmString.txtString.value;
+
+                for (i = 0; i < texto.length; i++)
+                {
+                    if (texto.charAt(i) == "A" || texto.charAt(i) == "E" || texto.charAt(i) == "I" || texto.charAt(i) == "O" || texto.charAt(i) == "U" || texto.charAt(i) == "a" || texto.charAt(i) == "e" || texto.charAt(i) == "i" || texto.charAt(i) == "o" || texto.charAt(i) == "u")
+                    {
+                        vogais++;
+                    }
+                    else
+                    {
+                        if ((texto.charAt(i).charCodeAt() > 65 && texto.charAt(i).charCodeAt() <= 90) || (texto.charAt(i).charCodeAt() > 97 && texto.charAt(i).charCodeAt() <= 122))
+                        {
+                            consoantes++;
+                        }
+                        else
+                        {
+                            if (texto.charAt(i) == " ")
+                            {
+                                espacos++;
+                            }
+                            else
+                            {
+                                outros++;
+                            }
+                        }
+                    }
+                    
+                }
+
+                digitos = texto.length - espacos;
+
+                document.write("<table border='1'>");
+                    document.write("<tr>");
+                        document.write("<td> Quantidade de Vogais: </td>");
+                        document.write("<td>" + vogais + "</td>");
+                    document.write("</tr>");
+
+                    document.write("<tr>");
+                        document.write("<td> Quantidade de Consoantes: </td>");
+                        document.write("<td>" + consoantes + "</td>");
+                    document.write("</tr>");
+
+                    document.write("<tr>");
+                        document.write("<td> Quantidade de Dígitos: </td>");
+                        document.write("<td>" + digitos + "</td>");
+                    document.write("</tr>");
+
+                    document.write("<tr>");
+                        document.write("<td> Outros Caracteres: </td>");
+                        document.write("<td>" + outros + "</td>");
+                    document.write("</tr>");
+                document.write("</table>");
+
+            }
+        </script>
+    </head>
+    <body>
+        <form name="frmString">
+            Escreva algo no espaço a seguir: <br>
+            <input type="text" name="txtString" value="">
+            <input type="button" value="Ok" onclick="processo()">
+        </form>
+    </body>
+</html>

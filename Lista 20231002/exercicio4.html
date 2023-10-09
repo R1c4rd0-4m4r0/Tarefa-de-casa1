@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> Palíndromo </title>
+        <script lang="JavaScript">
+            function processo()
+            {
+                var Tinicial, texto = "", otxet = "", i, espacos = 0;
+
+                Tinicial = document.frmString.txtString.value;
+
+                for (i = 0; i < Tinicial.length; i++)
+                {
+                    if (Tinicial.charAt(i) != " ")
+                    {
+                        texto = texto.concat(Tinicial.charAt(i));
+                    }
+                }
+
+                for (i = Tinicial.length - 1; i >= 0; i--)
+                {
+                    if (Tinicial.charAt(i) != " ")
+                    {
+                        otxet = otxet.concat(Tinicial.charAt(i));
+                    }
+                }
+
+                if (texto.toLowerCase() == otxet.toLowerCase())
+                {
+                    document.write("<b> O dado informado trata-se de um palíndromo. </b>");
+                }
+                else
+                {
+                    document.write("<b> O dado informado não se trata de um palíndromo. </b>");
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <form name="frmString">
+            Escreva algo no espaço a seguir para conferir se trata-se de um palíndromo: <br>
+            <input type="text" name="txtString" value="">
+            <input type="button" value="Ok" onclick="processo()">
+        </form>
+    </body>
+</html>
