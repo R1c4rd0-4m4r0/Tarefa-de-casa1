@@ -1,0 +1,125 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> Calculadora </title>
+        <script lang="JavaScript">
+            var valor1, operad;
+
+            function valores(valor)
+            {
+                document.getElementById('txt').value += valor;
+            }
+
+            function operacao(operador)
+            {
+                
+                
+                valor1 = parseFloat(document.getElementById('txt').value);
+                operad = operador;
+                document.getElementById('txt').value = "";
+
+            }
+
+            function igual()
+            {
+                var valor2, result;
+
+                valor2 = parseFloat(document.getElementById('txt').value);
+
+                switch (operad) 
+                {
+                    case 1: 
+                    {
+                        result = valor1 + valor2;
+                        break;
+                    }
+                    
+                    case 2: 
+                    {
+                        result = valor1 - valor2;
+                        break;
+                    }
+                    
+                    case 3: 
+                    {
+                        result = valor1 * valor2;
+                        break;
+                    }
+
+                    case 4: 
+                    {
+                        result = valor1 / valor2;
+                        break;
+                    }
+                }             
+                document.getElementById('txt').value = result;   
+            }
+
+        </script>
+
+        <style>
+            input[type='button']
+            {
+                width: 30px;
+                height: 30px;
+                border-radius: 30%;
+                background-color: #C2C6D7;                
+            }
+
+            input[type='text']
+            {
+                width: 140px;
+                height: 35px;
+                border-width: 2px;
+                border-radius: 10%;
+                background-color: lightgreen;
+                text-align: right;
+            }
+
+            table
+            {
+                border-style: solid;
+                border-radius: 5%;
+                background-color: lightgray;
+            }
+            input[id='op']
+            {
+                background-color: lightblue;
+            }
+        </style>
+
+    </head>
+    <body>
+        <center>
+            <table>
+                <tr>
+                    <td colspan="4" > <input type="text" name="txtValores" value="" id="txt" readonly> </td> 
+                </tr>
+                <tr>
+                    <td> <input type="button" value="7" onclick="valores('7');"> </td>
+                    <td> <input type="button" value="8" onclick="valores('8');"> </td>
+                    <td> <input type="button" value="9" onclick="valores('9');"> </td>
+                    <td> <input type="button" value="+" onclick="operacao(1);" id ="op"> </td>
+                </tr>
+                <tr>
+                    <td> <input type="button" value="4" onclick="valores('4');"> </td>
+                    <td> <input type="button" value="5" onclick="valores('5');"> </td>
+                    <td> <input type="button" value="6" onclick="valores('6');"> </td>
+                    <td> <input type="button" value="-" onclick="operacao(2);" id ="op"> </td>
+                </tr>
+                <tr>
+                    <td> <input type="button" value="1" onclick="valores('1');"> </td>
+                    <td> <input type="button" value="2" onclick="valores('2');"> </td>
+                    <td> <input type="button" value="3" onclick="valores('3');"> </td>
+                    <td> <input type="button" value="*" onclick="operacao(3);" id ="op"> </td>
+                </tr>
+                <tr>
+                    <td> <input type="button" value="0" onclick="valores('0');"> </td>
+                    <td> <input type="button" value="," onclick="valores('.');"> </td>
+                    <td> <input type="button" value="=" onclick="igual();"> </td>
+                    <td> <input type="button" value="/" onclick="operacao(4);" id ="op"> </td>
+                </tr>            
+            </table>
+        </center>
+    </body>
+</html>
