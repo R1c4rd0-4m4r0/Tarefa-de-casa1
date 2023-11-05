@@ -1,0 +1,178 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> Poltronas Teatro </title>
+        <script>
+            var polts, preco = 0;
+            polts = new Array(15);
+
+            for(var i = 0; i < polts.length; i++)
+            {
+                polts[i] = new Array(40);
+            }
+            
+            //Preços: 
+            // Fileiras 1 até 5: R$50,00 (linha: 0 a 4/coluna: 0 a 39)
+            // Fileiras 6 até 10: R$40,00 (linha: 5 a 9/coluna: 0 a 39)
+            // Fileiras 11 até 15: R$30,00 (linha: 10 a 14/coluna: 0 a 39)
+            // 20 poltronas centrais + 10% (linha: 0 a 14/coluna: 10 a 29)
+
+            function Selecionar(lin, col)
+            {
+                //1 = poltrona vaga;
+                //2 = poltrona ocupada;
+
+                if(polts[lin][col] == 2)
+                {
+                    
+                    polts[lin][col] = 1;
+                    document.getElementById("P" + lin + "," + col).setAttribute("src", "poltronavaga.png");
+                    
+                    if (lin <= 4)
+                    {
+                        if(col >= 10 && col <= 29)
+                        {
+                            preco -= 50 + (50 * 0.1);
+                        }
+                        else
+                        {
+                            preco -= 50;
+                        }
+                    }
+                    else
+                    {
+                        if (lin <= 9)
+                        {
+                            if(col >= 10 && col <= 29)
+                            {
+                                preco -= 40 + (40 * 0.1);
+                            }
+                            else
+                            {
+                                preco -= 40;
+                            }
+                        }
+                        else
+                        {
+                            if(col >= 10 && col <= 29)
+                            {
+                                preco -= 30 + (30 * 0.1);
+                            }
+                            else
+                            {
+                                preco -= 30;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    
+                    polts[lin][col] = 2;
+                    document.getElementById("P" + lin + "," + col).setAttribute("src", "poltronaselec.png");
+
+                    if (lin <= 4)
+                    {
+                        if(col >= 10 && col <= 29)
+                        {
+                            preco += 50 + (50 * 0.1);
+                        }
+                        else
+                        {
+                            preco += 50;
+                        }
+                    }
+                    else
+                    {
+                        if (lin <= 9)
+                        {
+                            if(col >= 10 && col <= 29)
+                            {
+                                preco += 40 + (40 * 0.1);
+                            }
+                            else
+                            {
+                                preco += 40;
+                            }
+                        }
+                        else
+                        {
+                            if(col >= 10 && col <= 29)
+                            {
+                                preco += 30 + (30 * 0.1);
+                            }
+                            else
+                            {
+                                preco += 30;
+                            }
+                        }
+                    }
+                }
+            }
+
+            function Calcula_Preço()
+            {
+                document.frmTeatro.txtbotao.value = "R$ " + preco + ",00";
+            }
+        </script>
+        <style>
+            #cadeiras
+            {
+                margin-top: 65px;
+            }
+
+            body
+            {
+                background-color: rgb(58, 56, 56);
+            }
+
+            input[type='button']
+            {
+                height: 35px;
+                width: 115px;
+                border-radius: 10%;
+                font-size: 18px;
+                font-weight: bold;
+                text-align: center;
+                border-style: solid;
+                border-color: #19120b;
+                background-color: green;
+            }
+            #palco
+            {
+               border-bottom-left-radius: 20%; 
+               border-bottom-right-radius: 20%;
+               border-bottom-style: solid;
+               border-left-style: solid;
+               border-right-style: solid;
+               border-width: 2px;
+            }
+        </style>
+    </head>
+    <body>
+        <center>
+            <div>
+                <img id="palco" width="1050" height="95" src="palco(bem_tosco).jpg">
+            </div>
+            <div id="cadeiras">
+                <form name="frmTeatro">
+                    <script lang="JavaScript">
+                        var lin, col;
+
+                        for(lin = 0; lin < 15; lin++)
+                        {
+                            for(var col = 0; col < 40; col++)
+                            {
+                                document.write("<img width='25' src='poltronavaga.png' id='P"+ lin + "," + col +"' onclick='Selecionar("+ lin + "," + col +")'>");
+                            }
+                            document.write("<br>");
+                        }
+                        
+                        document.write("<br> <input type='button' name='txtbotao' id='valor' value='R$' onclick='Calcula_Preço()'>");
+
+                    </script>
+                </form>
+            </div>
+        </center>
+    </body>
+</html>
