@@ -1,0 +1,187 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> Corida de Kart </title>
+        <script>
+            var medias, mediasOrgan;
+            medias = new Array(10);
+            mediasOrgan = new Array(10);
+
+            function Result(kartn, piloto, volts)
+            {
+                var acumul=0, menorM, maiorM, vlen = 0, vrap = 0, linha, col;
+                var primeiro, ultimo, maislento, maisrapido;
+                
+                for(var linha = 0; linha < 10; linha++)
+                {
+                    //(apenas para teste) document.write(kartn[linha] + "," + piloto[linha] + "," + volts[linha][0] + "," + volts[linha][1] + "," + volts[linha][2] + "<br>");
+                    
+                    for(col = 0; col < 3; col++)
+                    {
+                        parseFloat(volts[linha][col]);                        
+                        
+                        //Volta mais rapida e a mais lenta
+                        if(linha == 0 && col == 0)
+                        {
+                            vlen = volts[linha][col];
+                            vrap = volts[linha][col];
+                            maisrapido = "<b> Piloto: </b>" + piloto[linha] + "<br> <b> Tempo: </b>" + vrap + " seg";
+                            maislento = "<b> Nº do carro: </b>" + kartn[linha] + "<br> <b> Tempo: </b>" + vlen + " seg";
+                        }
+                        if(volts[linha][col] > vlen)
+                        {
+                            vlen = volts[linha][col];
+                            maislento = "<b> Nº do carro: </b>" + kartn[linha] + "<br> <b> Tempo: </b>" + vlen + " seg";
+                        }
+                        if(volts[linha][col] < vrap)
+                        {
+                            vrap = volts[linha][col];
+                            maisrapido = "<b> Piloto: </b>" + piloto[linha] + "<br> <b> Tempo: </b>" + vrap + " seg";
+                        }
+                        
+                        //Maior e menor média
+                        acumul += parseFloat(volts[linha][col]);
+
+                        if(col == 2)
+                        {
+                            medias[linha] = acumul / 3;
+                            acumul = 0;
+                            mediasOrgan[linha] = medias[linha];
+                        }
+                    
+                    }
+                    
+                    mediasOrgan.sort();
+                }
+
+                document.write("<div id='um'> <table>");
+                    document.write("<tr> <td> <h2> Informações </h2> </td> </tr>");
+                    document.write("<tr> <td> <h3> Carro na pole-position: </h3>");
+                    for(var i = 0; i < 10; i++)
+                    {
+                        if(mediasOrgan[0] == medias[i])
+                        {
+                            document.write("<b> Piloto: </b>" + piloto[i] + "<br> <b> Tempo médio: </b>" + mediasOrgan[0].toString().substring(0, 4) + " seg </td> </tr>");
+                            i = 9;
+                        }
+                    }  
+
+                    document.write("<tr> <td> <h3> Último carro a largar: </h3>");
+                    for(var i = 0; i < 10; i++)
+                    {
+                        if(mediasOrgan[9] == medias[i])
+                        {
+                            document.write("<b> Nº do carro: </b>" + kartn[i] + "<br> <b> Tempo médio: </b>" + mediasOrgan[9].toString().substring(0, 4) + " seg </td> </tr>");
+                            i = 9;
+                        }
+                    }
+                    
+                    document.write("<tr> <td> <h3> Volta mais rápida: </h3>"+ maisrapido +"</td> </tr>");
+                    document.write("<tr> <td> <h3> Volta mais lenta: </h3>"+ maislento +"</td> </tr>");
+                document.write("</table> </div>");
+
+                document.write("<div id='dois'> <table>");
+                    document.write("<tr><td colspan='2' id='vazio'><h2> Grid de Largada: </h2></td></tr>");
+                    for(var i = 0; i < 10; i++)
+                    {
+                        for(var j = 0; j < 10; j++)
+                        {
+                            if(mediasOrgan[i] == medias[j])
+                            {
+                                if(i % 2 == 0)
+                                {
+                                    document.write("<tr>");
+                                        document.write("<td id='ocupado'>"+ piloto[j] +"<br>"+ kartn[j] +"</td> <td id='vazio'></td>");
+                                    document.write("</tr>");
+                                    j = 9;
+                                }
+                                else
+                                {
+                                    document.write("<tr>");
+                                        document.write(" <td id='vazio'></td> <td id='ocupado'>"+ piloto[j] +"<br>"+ kartn[j] +"</td>");
+                                    document.write("</tr>");
+                                    j = 9;
+                                }
+                            }
+                        }
+                    }
+                document.write("</div> </table>");
+            }
+        </script>
+        <style>
+            td
+            {
+                border-style: solid;
+            }
+            h2
+            {
+                font-size: 25px;
+                text-align: center;
+            }
+            h3
+            {
+                text-align: center;
+            }
+            div
+            {
+                border-style: solid;
+                display: inline-block;
+            }
+            #vazio
+            {
+                border-style: none;
+            }
+            #ocupado
+            {
+                border-top-style: solid;
+                border-left-style: solid;
+                border-right-style: solid;
+                border-bottom-style: none;
+                width: 25px;
+                height: 50px;
+                text-align: center;
+            }
+            #um
+            {
+                position: relative;
+                right: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <form name="frmDados">
+            <center>
+                <script lang="JavaScript">
+                    var  numK, nomeP, voltas, lin = 0;
+
+                    numK = new Array(10);
+                    nomeP = new Array(10);
+                    voltas = new Array(10);
+                    
+                    var numAleat;
+                    numAleat = Math.random() + 100
+                    for(var i = 0; i < 10; i++)
+                    {
+                        voltas[i] = new Array(3);
+                    }
+                    
+                    window.alert("Informe a seguir, os dados exigidos para a formação do grid de largada.");
+
+                    for (var lin = 0; lin < 10; lin++)
+                    {
+                        numK[lin] = window.prompt("(Kart " + (lin+1) +") Número do Kart: ");
+                        nomeP[lin] = window.prompt("(Kart " + (lin+1) +") Nome do Piloto: ");
+                        voltas[lin][0] = window.prompt("(Kart " + (lin+1) +") Tempo da 1° volta: ");
+                        voltas[lin][1] = window.prompt("(Kart " + (lin+1) +") Tempo da 2° volta: ");
+                        voltas[lin][2] = window.prompt("(Kart " + (lin+1) +") Tempo da 3° volta: ");
+
+                        if(lin == 9)
+                        {
+                            Result(numK, nomeP, voltas);
+                        }
+                    }                    
+                </script>
+            </center>
+        </form>
+    </body>
+</html>
